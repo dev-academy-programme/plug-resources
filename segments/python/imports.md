@@ -42,3 +42,6 @@ utilities.functions.sayHello("Alice")
 ## Read more about the Python Import System
 
 * [Python Import System Docs/Tutorial](https://docs.python.org/3/reference/import.html)
+* [Python Docs](https://docs.python.org/2/tutorial/modules.html)
+* [Tutorial](https://www.codementor.io/sheena/python-path-virtualenv-import-for-beginners-du107r3o1)
+* [Interactive Tutorial](https://www.learnpython.org/en/Modules_and_Packages)
