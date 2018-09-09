@@ -140,12 +140,35 @@ x.toString() # --> "Cino is 1 years old"
 x.bark() # --> "BARK!"
 ```
 
+Classes my inherit from other classes, this allows a class to extend functionality from another.
 
-`class_type` is inheritence. You may extend functionality from other classes here.
-[Read more about Inheritence](https://www.python-course.eu/python3_inheritance.php)
+``` py
+class Animal:
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        print("Growl...")
+    def toString(self):
+        print("{} is {} years old".format(self.name, self.age))
 
+class Dog(Animal):
+    def __init(self, name):
+        Animal.__init__(self, name)
+        #Call upon the constructor of the parent class
+    def speak(self):
+        print("BARK!")
+
+x = Animal("blah")
+x.speak() # --> "Growl..."
+
+y = Dog("Cino")
+y.speak() # --> "BARK!"
+y.toString() # --> "Cino is 0 years old"
+# Dog has inherited the `toString` method from `Animal`
+```
 
 
 ## Read more about Classes
 
 * [Python Classes Tutorial](https://docs.python.org/3/tutorial/classes.html)
+* [Read about Inheritence](https://www.python-course.eu/python3_inheritance.php)
