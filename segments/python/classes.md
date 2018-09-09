@@ -171,4 +171,7 @@ y.toString() # --> "Cino is 0 years old"
 ## Read more about Classes
 
 * [Python Classes Tutorial](https://docs.python.org/3/tutorial/classes.html)
+* [W3Schools](https://www.w3schools.com/python/python_classes.asp)
+* [Interactive Tutorial](https://www.learnpython.org/en/Classes_and_Objects)
 * [Read about Inheritence](https://www.python-course.eu/python3_inheritance.php)
+* [Another Inheritence Tutorial](https://www.programiz.com/python-programming/inheritance)
