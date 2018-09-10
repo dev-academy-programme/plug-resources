@@ -104,3 +104,72 @@ class BalanceModel(Model):
             balance=payload["balance"]
         )
 ```
+
+## Using a Model
+
+Include your models using the plug.registry.classes key in your config.yaml:
+
+``` yaml
+plug:
+  registry:
+    classes:
+    - my.models.VoucherModel
+```
+
+or in your head class within `__init__.py` in the `setup` method
+
+``` py
+class HEAD_PLUGIN(Plugin):
+  @classmethod
+  def setup(cls, registry):
+    components = [
+      # Include your plugin's models/transforms/errors etc here.
+      plugin.model.BalanceModel,
+    ]
+    for component in components:
+      registry.register(component)
+```
+
+!!!PLACEHOLDER - The plug docs describe validation for models, this is something that hasn't shown up in the FreeMoney exercise or in the tutorial docs. I will break this information down, but have no context for it.
+
+## Validation
+
+Each model uses python dataclasses and typing to validate on instantiation. This means optional params and defaults can be defined.
+
+``` py
+@dataclasses.dataclass
+class VoucherModel(Model):
+    fqdn = "com.my-company.VoucherModel"
+    issuer: str
+    recipient: str
+    value: typing.Optional[int] = 0
+```
+
+Using the above class, `VoucherModel(issuer=1, recipient=2)` would raise an error.
+
+You can also validate a key to know if it is a valid key belonging to this Model.
+
+If the key is not valid, a `plug.error.KeyValidationError` should be raised.
+
+Plug defines a default validation that will check that the key is a string.
+
+If `key_validation_regex` is not `None`, Plug will also check that the key matches it. Models can override this method to provide custom validation rules and Mixins can be used to extend it as well.
+
+Check `plug.model.AddressValidationModelMixin` for an example of a Mixin provided by Plug core that will validate that the keys are valid Plug addresses.
+
+``` py
+@dataclasses.dataclass
+class VoucherModel(Model):
+  fqdn = "com.my-company.VoucherModel"
+
+  # Only uppercase alphanumeric keys are allowed as voucher codes
+  key_validation_regex = re.compile(r"^[A-Z0-9]+$")
+
+  @classmethod
+  def validate_key(cls, key):
+    super().validate_key(key)  # Default checks
+
+    if key == "VOUCHER":
+      message = _("Voucher can not be 'VOUCHER'.")
+      raise plug.error.KeyValidationError(message)
+```
