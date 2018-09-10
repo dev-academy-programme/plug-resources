@@ -8,6 +8,6 @@
 * [Scaffolding from CookieCutter](./cookie-cutter.md)
 
 ### Components of a Plugin
-* [Models]('./models.md')
+* [Models](./models.md)
 *
 *
