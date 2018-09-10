@@ -3,6 +3,7 @@
 ## What is a Model?
 
 Models define domain-specific data types/structures.
+
 [Read more about Models in Crypto](../crypto/models.md)
 
 

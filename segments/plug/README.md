@@ -9,5 +9,5 @@
 
 ### Components of a Plugin
 * [Models](./models.md)
-*
+* [Transforms](./transforms.md)
 *
