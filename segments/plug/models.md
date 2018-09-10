@@ -1,5 +1,15 @@
 # Models
 
+## Index
+* [What is a Model](#what-is-a-model)
+* [Creating a Model](#creating-a-model)
+  * [default_factory](#default-factory)
+  * [pack](#pack)
+  * [unpack](#unpack)
+* [Model Example](#model-example)
+* [Using a Model](#using-a-model)
+* [Validation](#validation)
+
 ## What is a Model?
 
 Models define domain-specific data types/structures.
@@ -27,7 +37,7 @@ class MyModel(Model):
     fqdn = "com.my-company.MyModel"
 ```
 
-### default_factory
+### default factory
 
 All models require a `default_factory` to initialize a new instance of the model, this is used when accessing a model by key that has not been created already.
 
@@ -75,7 +85,7 @@ def unpack(cls, registry, payload):
     )
 ```
 
-## Balance Model Example
+## Model Example
 
 Here is a full example of a Model that models Balance.
 
