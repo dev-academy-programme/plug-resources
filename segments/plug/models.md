@@ -55,9 +55,10 @@ class BalanceModel(Model):
     return cls(balance = 0) #where initial balance is 0
 ```
 
-!!PLACEHOLDER BELOW THIS LINE - still unsure when the `unpack` and `pack` methods are required, as they are not described within the plug docs on Models
 
 ### Unpack and Pack
+
+!!PLACEHOLDER unpack and pack - still unsure when the `unpack` and `pack` methods are required, as they are not described within the plug docs on Models
 
 The Model class from within `plug.abstract` demands that a model be `Packable`, which means your Model must have methods to `pack` and `unpack`.
 
