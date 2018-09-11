@@ -1,5 +1,14 @@
 # Setup
 
+## Index
+* [prerequisites](./prerequisites.md)
+* [pipenv / virtual environment](#virtual-environment)
+* [Plug Libraries](./plug-libraries)
+* [Installing Local Plugin](./installing-local-plugin)
+* [Pipfile](#Pipfile)
+* [Creating a Node](#creating-a-node)
+* [Running your Node](#running-your-node)
+
 You will want to be working from within your Python Virtual Environment. You can start this by running the command
 
 ## Virtual Environment
@@ -19,21 +28,21 @@ within your project's root directory.
 
 Next you will need to install the Plug libraries.
 
-!!!PLACEHOLDER (unsure where live install locations will be, this path is from the plug docs)
+!!!PLACEHOLDER (unsure where live install locations will be, this path is our working method)
 
 Install the Plug Core library
 
 ```sh
-pipenv install -e git+ssh://git@github.com/plugblockchain/plug@master#egg=plug
+pipenv install <LOCAL_PATH_TO>/plug-0.0.20.tar.gz
 ```
 
 Install the Plug Api library
 
 ```sh
-pipenv install -e <PATH_TO_PLUG_API_LIBRARY>
+pipenv install <LOCAL_PATH_TO>/plug-api-1.6.1.tar.gz
 ```
 
-## Local Plug Plugin / Cookie Cutter Plugin
+## Installing Local Plugion
 
 [Setting up a Cookie Cutter Plugin](./cookie-cutter.md)
 
