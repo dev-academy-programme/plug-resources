@@ -1,3 +1,1 @@
 # Student Guide
-
-<!-- {% include "./segments/" %} -->
