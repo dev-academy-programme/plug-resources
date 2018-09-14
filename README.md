@@ -19,6 +19,7 @@
 
 ## Student Guide
   * [Index](./student-guide/README.md)
+  * [What Next?](./student-guide/what-next.md)
   * [Free Money](./student-guide/free-money.md)
   * [Crypto Kiwis](./student-guide/crypto-kiwis.md)
 

@@ -90,6 +90,10 @@ The possibilites are endless!
 Creating your own stretch goals is a great way to test your inginuinity and understanding when it comes to this tech.
 Like we said earlier, the potential of crypto is vast and yet unfufilled. Start thinking creatively about what the possibilites of this technology are, it'll benefit you in the long run, we promise.
 
+---
+
+If you like the format of the above recommendations for extending your learning, we have a more [generalised resource here](./what-next.md) that you should bookmark and apply to all future exercises.
+
 ## Next Exercise
 
 Congratulations on your progress with the Free Money exercise. Keep in mind that you can always come back here to test your retention of knowledge or your growth in understanding at a later date, so be sure not to forget about this page.

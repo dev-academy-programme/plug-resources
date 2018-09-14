@@ -6,5 +6,6 @@ We have provided links to resources you will want to read through for technical 
 
 ## Exercises
 
+* [I have finished an exercise, What Next?](./what-next.md)
 * [Free Money - Building your first Plug Aoo](./free-money.md)
 * [Crypto Kiwis - Building a Complex Backend](./crypto-kiwis.md)
