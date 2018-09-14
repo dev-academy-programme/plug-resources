@@ -57,9 +57,9 @@ Save, stage, commit and push yor changes.
 Create a new Heroku app called plug-dev-handbook
 
 ```
-# Be sure you're already logged into the Heroku Toolbelt CLI tool
-heroku apps:create COHORT-YEAR-handbook
+heroku apps:create plug-dev-handbook
 ```
+
 Deploy the application
 
 ```
@@ -74,7 +74,6 @@ git commit -m "build handbook"
 git push --force heroku deployed:master
 ```
 
-./deploy
 Create two environment variables in the Heroku app with the following values:
 
 heroku config:set USERNAME=COHORT-YEAR
