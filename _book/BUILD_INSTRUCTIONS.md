@@ -62,22 +62,7 @@ heroku apps:create COHORT-YEAR-handbook
 ```
 Deploy the application
 
-```
-gitbook install
-
-gitbook build
-
-git checkout deployed
-git add -A
-git commit -m "build handbook"
-
-git push --force heroku deployed:master
-
-git checkout master
-
-```
-
-./deploy
+./deploy # Note: do NOT use the typical git push heroku master approach
 Create two environment variables in the Heroku app with the following values:
 
 heroku config:set USERNAME=COHORT-YEAR
