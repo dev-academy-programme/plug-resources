@@ -47,13 +47,13 @@ Transforms and Models are the center of the Plug tech for this exercise and will
 
 Read through the code you have just written. Sometimes we can get pretty ahead of ourselves and think we understand something just because we solved it, which is often not the case.
 
-When you are looking at your solution, compare it to [Our Solution Branch](https://github.com/dev-academy-programme/plug-intro.git) to see where we have done things differently, whether in structure or semantic code. You may learn a thing or two. You may even have sometime to teach us!
+When you are looking at your solution, compare it to [Our Solution Branch](https://github.com/dev-academy-programme/plug-intro/tree/staging) to see where we have done things differently, whether in structure or semantic code. You may learn a thing or two. You may even have sometime to teach us!
 
 ### Revise
 
 Take notes! A lot of the code you have written for this exercise will be reused in a similar form in the next exercise(s), so be sure to note down what you have learned so you can come back to it later.
 
-Take notes from the [Resources](../segments) that we have linked in this guide, and [Our Solution Branch](https://github.com/dev-academy-programme/plug-intro.git).
+Take notes from the [Resources](../segments) that we have linked in this guide, and [Our Solution Branch](https://github.com/dev-academy-programme/plug-intro/tree/staging).
 
 Take note of concepts or code that is still mysterious to you so that you may ask a Teacher or do some "internet research" later on.
 
