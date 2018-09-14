@@ -1,3 +1,4 @@
+<!-- {% include "./segments/" %} -->
 # Student Guide
 
 Welcome to the Plug Curriculum Student Guide.
