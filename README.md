@@ -72,9 +72,6 @@ git add -A
 git commit -m "build handbook"
 
 git push --force heroku deployed:master
-
-git checkout master
-
 ```
 
 ./deploy
