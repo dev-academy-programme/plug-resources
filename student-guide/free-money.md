@@ -18,7 +18,7 @@ You will find the [Free Money exercise here](https://github.com/dev-academy-prog
 Before starting this exercise you should familiarise yourself with the core concepts of the [Python programming language](../segments/python).
 If you have never coded in Python before, we recommend working your way through all of the linked concepts. Python is a very developer friendly language and if coming from other languages such as Javascript or Ruby, you should be able to pick it up in no time!
 
-The tricker Python code you will want to understand are [Classes in Python](../segments/python/classes.md).
+The trickier Python code you will want to understand are [Classes in Python](../segments/python/classes.md).
 Be sure to read through the external links provided if you have not dealt with Python Classes before, as you will be using these extensively throughout this and other exercises.
 
 ## Blockchain
@@ -31,9 +31,7 @@ This first exercise is designed to teach you these concepts as you work, so don'
 
 ## Plug
 
-You may know what Python is. You may know how Crypto/Blockchain tech works. But how much do you know about Plug?
-
-We'd hope you don't know too much, because we really want to be the ones to teach you all about it!
+[Plug](https://www.plugblockchain.com/) is hot off the shelf blockchain technology that is the main focus of this challenge.
 
 The challenges in this exercise are centered around how to program a Plugin for Plug, so you should definitely focus you learning on the [resources for Plug here](../segments/plug) as the examples and descriptions here will be vital for solving this challenge.
 
@@ -47,7 +45,7 @@ Transforms and Models are the center of the Plug tech for this exercise and will
 
 Read through the code you have just written. Sometimes we can get pretty ahead of ourselves and think we understand something just because we solved it, which is often not the case.
 
-When you are looking at your solution, compare it to [Our Solution Branch](https://github.com/dev-academy-programme/plug-intro/tree/staging) to see where we have done things differently, whether in structure or semantic code. You may learn a thing or two. You may even have sometime to teach us!
+When you are looking at your solution, compare it to [Our Solution Branch](https://github.com/dev-academy-programme/plug-intro/tree/solution) to see where we have done things differently, whether in structure or semantic code. You may learn a thing or two. You may even have sometime to teach us!
 
 ### Revise
 
@@ -75,7 +73,7 @@ Try using Cookie Cutter to build the scaffold of a new Plugin and have a look ar
 
 Give yourself the challenge of following the same steps with the same end goal as the Free Money exercise, but do it without the hand-holding of our boilerplate.
 
-We expect this to be quite a challenge given how new all of this will be for you, so this may be a task to come back to at a later time. If you are willing to give it a go however, be reflective and honest with yourself, and remember that the focus on your learning, not perfect regurgiation!
+This could be quite a challenge, so it may be a task to come back to at a later time. If you are willing to give it a go however, be reflective and honest with yourself, and remember that the focus on your learning, not perfect regurgiation!
 
 ### Reach
 
