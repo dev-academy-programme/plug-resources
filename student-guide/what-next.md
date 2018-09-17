@@ -1,4 +1,4 @@
-# What Next?
+# I have finished, what next?
 
 We design our exercises to accomodate students of all backgrounds. This means some experienced developers may finish the task at hand within the day, where others may want to continue their progress at another time.
 

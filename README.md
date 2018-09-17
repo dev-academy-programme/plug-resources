@@ -1,29 +1,41 @@
-# Plug Resources
+## Plug Curriculum Book Source
 
-## Segments
-* [Index](./segments/README.md)
-  * [Crypto](./segments/crypto/README.md)
-    * [Blockchain](./segments/crypto/blockchain.md)
-    * [Decentralisation](./segments/crypto/decentralisation.md)
-  * [Python](./segments/python/README.md)
-    * [Variables](./segments/python/variables.md)
-    * [Functions](./segments/python/functions.md)
-    * [Imports](./segments/python/imports.md)
-    * [Classes](./segments/python/classes.md)
-  * [Plug](./segments/plug/README.md)
-    * [Prerequisites](./segments/plug/prerequisites.md)
-    * [Setup](./segments/plug/setup.md)
-    * [Cookie Cutter Scaffold](./segments/plug/cookie-cutter.md)
-    * [Models](./segments/plug/models.md)
-    * [Transforms](./segments/plug/transforms.md)
+To Build a book, navigate to the desired directory:
 
-## Student Guide
-  * [Index](./student-guide/README.md)
-  * [What Next?](./student-guide/what-next.md)
-  * [Free Money](./student-guide/free-money.md)
-  * [Crypto Kiwis](./student-guide/crypto-kiwis.md)
+If you build from root (here), the resulting book will include both the `teaching-guide` and `student-guide` resources.
 
-## Teaching Guide
-  * [Index](./teaching-guide/README.md)
-  * [Free Money](./teaching-guide/free-money.md)
-  * [Crypto Kiwis](./teaching-guide/crypto-kiwis.md)
+## Build Student-Guide
+
+(Currently on instructions for local serving of book)
+
+
+Install gitbook CLI
+
+```sh
+yarn add global gitbook
+ - or -
+npm install -g gitbook
+```
+
+For building full book, stay in this root directory.
+
+For building `student-guide`, run
+
+```sh
+cd student-guide/
+```
+
+For building `teaching-guide` run
+
+```sh
+cd teaching-guide/
+```
+
+Then for any book, run
+
+```sh
+gitbook install
+gitbook serve
+```
+
+The books should be visible at http://localhost:4000

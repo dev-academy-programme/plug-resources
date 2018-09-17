@@ -2,4 +2,4 @@
 
 * [Python](./python)
 * [Plug](./plug)
-* [crypto](./crypto)
+* [Crypto](./crypto)
