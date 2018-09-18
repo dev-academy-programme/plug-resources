@@ -46,7 +46,7 @@ The Transform’s functionality is divided (primarily) into two methods; `verify
 
 ### Verify()
 
-`verify()` checks the inputs for a transaction, and verfies the transaction against the current blockchain state.
+`verify()` checks the inputs for a transaction, and verifies the transaction against the current blockchain state.
 
 ``` py
 def verify(self, state_slice):
