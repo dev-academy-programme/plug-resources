@@ -1,8 +1,8 @@
 # I have finished, what next?
 
-We design our exercises to accomodate students of all backgrounds. This means some experienced developers may finish the task at hand within the day, where others may want to continue their progress at another time.
+We design our exercises to accommodate students of all backgrounds. This means some experienced developers may finish the task at hand within the day, where others may want to continue their progress at another time.
 
-The great thing about all of this however, is that noone ever finishes an exercise as there is always potential to squeeze more learning out of every challenge or resource.
+The great thing about all of this however, is that no one ever finishes an exercise as there is always potential to squeeze more learning out of every challenge or resource.
 
 If you find yourself finishing the directed steps and are looking for something more to further your learning, we have created a very complex formula for optimal learning that is just the thing you are needing.
 
@@ -34,7 +34,7 @@ Take note of concepts or code that is still mysterious to you so that you may as
 
 ### Redo
 
-Shampoo companies will always tell you to "Rinse and Repeat". We are telling you the same thing. I promise that we are telling you this as a habit that will benefit your learing, and NOT as a conspiracy to sell twice as much shampoo.
+Shampoo companies will always tell you to "Rinse and Repeat". We are telling you the same thing. I promise that we are telling you this as a habit that will benefit your learning, and NOT as a conspiracy to sell twice as much shampoo.
 
 Checkout the `master` branch of the exercise and make a new branch. Aim to work through and solve the exercise again without looking at either the `solution` branch, or your original branch. Be honest with yourself and reflect on what challenges you ran into, which concepts aren't sticking?
 
@@ -58,9 +58,9 @@ Have you completed all of the stretch goals in the `README`? Can you think of an
 
 Think of how the app could be more broadly applicable to a variety of users. Think in the terms of User Stores. (i.e. As Demographic/User type `X`, I would like to do `Y` so that I may `Z`). Once you have a user story, it is easier to design the feature that will enable that use case.
 
-The possibilites are endless!
+The possibilities are endless!
 
-Creating your own stretch goals is a great way to test your inginuinity and understanding when it comes to this tech.
-The potential of crypto is vast and yet unfufilled. Start thinking creatively about what the possibilites of this technology are, it'll benefit you in the long run, we promise.
+Creating your own stretch goals is a great way to test your ingenuity and understanding when it comes to this tech.
+The potential of crypto is vast and yet unfulfilled. Start thinking creatively about what the possibilities of this technology are, it'll benefit you in the long run, we promise.
 
 [Back to Index](./README.md)
