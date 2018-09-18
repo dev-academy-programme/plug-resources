@@ -1,6 +1,6 @@
 # Free Money Student Guide
 
-You will find the [Free Money exercise here](https://github.com/dev-academy-programme/plug-intro)
+You will find the [Free Money Challenge here](https://github.com/dev-academy-programme/plug-intro)
 
 ## Index
 * [Python](#python)
@@ -15,7 +15,7 @@ You will find the [Free Money exercise here](https://github.com/dev-academy-prog
 
 ## Python
 
-Before starting this exercise you should familiarise yourself with the core concepts of the [Python programming language](../segments/python).
+Before starting this exercise you should familiarize yourself with the core concepts of the [Python programming language](../segments/python).
 If you have never coded in Python before, we recommend working your way through all of the linked concepts. Python is a very developer friendly language and if coming from other languages such as Javascript or Ruby, you should be able to pick it up in no time!
 
 The trickier Python code you will want to understand are [Classes in Python](../segments/python/classes.md).
@@ -23,7 +23,7 @@ Be sure to read through the external links provided if you have not dealt with P
 
 ## Blockchain
 
-Unsurprisingly, this exercise is designed around Blockchain technology. Blockchain tech is awesome and has plenty of unfufilled potential, but it can also come across as a very large, sometimes scary, piece of work.
+Unsurprisingly, this exercise is designed around Blockchain technology. Blockchain tech is awesome and has plenty of unfulfilled potential, but it can also come across as a very large, sometimes scary, piece of work.
 
 We don't want it to be scary for you, so we recommend reading up on our resources about [Blockchain](../segments/crypto/blockchain.md). These resources can be quite reading intensive and mostly describe concepts rather than code, so you should skim read the material and bookmark anything that sticks out to you as interesting/confusing to come back to later.
 
@@ -57,7 +57,7 @@ Take note of concepts or code that is still mysterious to you so that you may as
 
 ### Redo
 
-Shampoo companies will always tell you to "Rinse and Repeat". We are telling you the same thing. I promise that we are telling you this as a habit that will benefit your learing, and NOT as a conspiracy to sell twice as much shampoo.
+Shampoo companies will always tell you to "Rinse and Repeat". We are telling you the same thing. I promise that we are telling you this as a habit that will benefit your learning, and NOT as a conspiracy to sell twice as much shampoo.
 
 Checkout the `master` branch of the Free Money exercise and make a new branch. Aim to work through and solve the exercise again without looking at either the `solution` branch, or your original branch. Be honest with yourself and reflect on what challenges you ran into, which concepts aren't sticking?
 
@@ -83,14 +83,14 @@ What if a user received less Free Money everytime they requests some?
 What if there was a limit to how much Free Money a user could claim?
 What if there was a limit to how much Free Money could be given away to users, say, ([21 Million](https://www.quora.com/Why-is-there-a-limited-amount-of-bitcoin-available))?
 
-The possibilites are endless!
+The possibilities are endless!
 
-Creating your own stretch goals is a great way to test your inginuinity and understanding when it comes to this tech.
-Like we said earlier, the potential of crypto is vast and yet unfufilled. Start thinking creatively about what the possibilites of this technology are, it'll benefit you in the long run, we promise.
+Creating your own stretch goals is a great way to test your ingenuity and understanding when it comes to this tech.
+Like we said earlier, the potential of crypto is vast and yet unfulfilled. Start thinking creatively about what the possibilites of this technology are, it'll benefit you in the long run, we promise.
 
 ---
 
-If you like the format of the above recommendations for extending your learning, we have a more [generalised resource here](./what-next.md) that you should bookmark and apply to all future exercises.
+If you like the format of the above recommendations for extending your learning, we have a more [generalized resource here](./what-next.md) that you should bookmark and apply to all future exercises.
 
 ## Next Exercise
 
