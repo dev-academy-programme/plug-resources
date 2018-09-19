@@ -9,6 +9,8 @@ The purpose of this challenge is to get a better understanding of how new Transf
 
 This challenge is a good starting point for a variety of reasons. It covers a lot of functionality that will be common across a wide variety of blockchain applications, and is easily extendable into further challenges or projects.
 
+You can find the [Free Money Challenge here.](https://github.com/dev-academy-programme/plug-intro)
+
 After completing the Free Money Challenge, you should feel confident in your understanding of the following areas:
 
 - What [Models](../plug/models.md) are, and how they work.
@@ -21,5 +23,3 @@ After completing the Free Money Challenge, you should feel confident in your und
 
 
 ---
-
-You can find the [Free Money Challenge here.](https://github.com/dev-academy-programme/plug-intro)

@@ -37,7 +37,7 @@ With this instance of the PlugApiClient, you can now begin interacting with the 
 Probably the single most common thing your API Client will do is broadcast transforms. The `broadcast_transform()` method takes a Transform argument, and posts it to the Plug API backend.
 
 ```
-client.broadcast_transform(FreeMoney(
+client.broadcast_transform(ExampleTransform(
         receiver=address_input,
         amount=int(amount),
     ))
@@ -132,3 +132,5 @@ async def init_transaction(sender_key_input, receiver_address, amount):
 
     print(response)
 ```
+
+These code examples run through the entire process of setting up and running the API Client. For more information about the library, including all its available methods, please consult the reademe documents located in the `plug/libs/plug-api-1.6.1.tar.gz` directory.
