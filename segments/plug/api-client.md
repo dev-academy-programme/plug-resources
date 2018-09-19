@@ -34,7 +34,7 @@ With this instance of the PlugApiClient, you can now begin interacting with the 
 
 ### Broadcasting a Transform
 
-Probably the single most common thing your API Client will do is broadcast transforms. The `broadcast_transform()` method takes a Transform argument, and posts it to the Plug API backend. 
+Probably the single most common thing your API Client will do is broadcast transforms. The `broadcast_transform()` method takes a Transform argument, and posts it to the Plug API backend.
 
 ```
 client.broadcast_transform(FreeMoney(
@@ -45,15 +45,90 @@ client.broadcast_transform(FreeMoney(
 
 ### The Key Manager
 
-another gem
-SqliteKeyManager
+The Key Manager is used to generate and store keys, sign transactions and generate
+new addresses. The API client requires a key manager instance so that it can sign transactions
+(e.g., when calling `PlugApiClient.broadcast_transform`).
+
+A simple instance of the Key Manager looks like this:
+
+```
+from plug_api.key_managers.sqlite import SqliteKeyManager
+
+def get_key_manager():
+    return SqliteKeyManager('keys.db').setup()
+```
+
+This script can now be required in elsewhere in your project, and used whenever you need to handle signing keys. An example of this might be creating two new users for a transaction:
+
+```
+sender = key_manager.generate()
+receiver = key_manager.generate()
+```
+
+Consult the readme files for more information on using the Key Manager and its available methods.
 
 ### Handling Nonces
 
-i can't believe how quickly i am learning!
+The Key Manager also keeps track of the nonce value for each address, so that it can
+generate valid proofs. It contains tools for interacting with nonces, including functionality for incrementing or manually setting their value. IE:
+
+```
+key_manager.get_nonce()
+key_manager.set_nonce()
+key_manager.advance_nonce()
+```
 
 ## Code Examples
 
+The following is a basic example of the Plug API Client in action:
+
+### key_manager.py
 ```
-look at all of this fantastic code!
+from plug_api.key_managers.sqlite import SqliteKeyManager
+
+def get_key_manager():
+    return SqliteKeyManager('keys.db').setup()
+```
+
+### api_client.py
+```
+from key_manager import get_key_manager
+from plug_api.clients.v1 import PlugApiClient
+
+def get_api_client():
+    return PlugApiClient("http://localhost:8181", get_key_manager())
+```
+
+### user.py
+```
+from api_client import get_api_client
+from key_manager import get_key_manager
+
+class User:
+    client = get_api_client()
+    key_manager = get_key_manager()
+    network_id = client.network_id
+
+    def __init__(self):
+      self.address = self.key_manager.generate()
+      self.key_manager.set_nonce(self.address, self.network_id, 0)
+```
+
+### transaction.py
+```
+from client.api_client import get_api_client
+from register import register_transform_event
+
+from user import User
+
+async def init_transaction(sender_key_input, receiver_address, amount):
+    register_transform_event(BalanceTransfer)
+
+    response = get_api_client().broadcast_transform(BalanceTransfer(
+        sender=sender_key_input,
+        receiver=receiver_address,
+        amount=int(amount)
+    ))
+
+    print(response)
 ```
