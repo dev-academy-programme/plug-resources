@@ -67,7 +67,10 @@ These properties will all be set once the object is packed into the registry. Th
         )
 ```
 
-The final required methods are the `verify()` and `apply()`. 
+The final required methods are the `verify()` and `apply()`. They handle the actual business logic of the Transform:
+
+```
+    ...
 
     def verify(self, state_slice):
         balances = state_slice[BalanceModel.fqdn]
@@ -84,6 +87,9 @@ The final required methods are the `verify()` and `apply()`.
         balances[self.receiver].balance += self.amount
 ```
 
+This completes the transform. It's a very straight forward process if you actually just read it through line by line. It has a few properties, and some methods for packing/unpacking events, and verifying/applying transformations on the state.
+
+#### Writing the FreeMoney transform.
 
 
 ---
