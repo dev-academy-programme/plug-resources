@@ -32,17 +32,23 @@ path here; if the file does not exist, it will be created automatically.
 
 With this instance of the PlugApiClient, you can now begin interacting with the nodes. Three of the most common interactions are broadcasting a transform, the key_manager, and handling nonces.
 
-SqliteKeyManager
+### Broadcasting a Transform
 
-### broadcast_transform
+Probably the single most common thing your API Client will do is broadcast transforms. The `broadcast_transform()` method takes a Transform argument, and posts it to the Plug API backend. 
 
-Very informative information.
+```
+client.broadcast_transform(FreeMoney(
+        receiver=address_input,
+        amount=int(amount),
+    ))
+```
 
-### b
+### The Key Manager
 
 another gem
+SqliteKeyManager
 
-### c
+### Handling Nonces
 
 i can't believe how quickly i am learning!
 
