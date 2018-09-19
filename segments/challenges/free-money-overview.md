@@ -16,9 +16,73 @@ After completing the Free Money Challenge, you should feel confident in your und
 - What [Models](../plug/models.md) are, and how they work.
 - The process of creating a new [Transform](../plug/transforms.md) to manipulate the state of the blockchain.
 - How to write client side code to manually POST Transform events to the server.
-- The basics of the Plug client_api, and how to get it POSTing your Transform events for you.
+- The basics of the [Plug client_api](.,/plug/api-client.md), and how to get it POSTing your Transform events for you.
 
 ## Instructions:
+
+General instructions for the [Free Money Challenge can be found here,](https://github.com/dev-academy-programme/plug-intro) however the following section outlines more explicit solutions. You should try working through the challenge yourself before consulting this section:
+
+#### Writing the BalanceTransfer transform.
+
+At the top of your BalanceTransfer function, you must initialize all of the local properties:
+
+```
+@dataclass
+class BalanceTransfer(Transform):
+    fqdn = "tutorial.BalanceTransfer"
+    sender: str
+    receiver: str
+    amount: int
+```
+
+These properties will all be set once the object is packed into the registry. This next part of the class is fairly boilerplate, and will look similar across most of the Transforms you will write:
+
+```
+    ...
+
+    def required_authorizations(self):
+        return {self.sender}
+
+    @staticmethod
+    def required_models():
+        return {BalanceModel.fqdn}
+
+    def required_keys(self):
+        return {self.sender, self.receiver}
+
+    @staticmethod
+    def pack(registry, obj):
+        return {
+            "sender": obj.sender,
+            "receiver": obj.receiver,
+            "amount": obj.amount,
+        }
+
+    @classmethod
+    def unpack(cls, registry, payload):
+        return cls(
+            sender=payload["sender"],
+            receiver=payload["receiver"],
+            amount=payload["amount"],
+        )
+```
+
+The final required methods are the `verify()` and `apply()`. 
+
+    def verify(self, state_slice):
+        balances = state_slice[BalanceModel.fqdn]
+
+        if self.amount <= 0:
+            raise free_money.error.InvalidAmountError("Transfer amount must be more than 0")
+
+        if balances[self.sender].balance < self.amount:
+            raise free_money.error.NotEnoughMoneyError("Insufficient funds")
+
+    def apply(self, state_slice):
+        balances = state_slice[BalanceModel.fqdn]
+        balances[self.sender].balance -= self.amount
+        balances[self.receiver].balance += self.amount
+```
 
 
 
