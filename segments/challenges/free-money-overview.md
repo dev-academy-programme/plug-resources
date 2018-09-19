@@ -91,5 +91,56 @@ This completes the transform. It's a very straight forward process if you actual
 
 #### Writing the FreeMoney transform.
 
+The FreeMoney transform is virtually identical to BalanceTransfer. It doesn't require a sender, and the `verify()` / `apply()` methods are slimmed down a little too.
+
+```
+@dataclass
+class FreeMoney(Transform):
+    fqdn = "tutorial.FreeMoney"
+    receiver: str
+    amount: int
+
+    def required_authorizations(self):
+        return {self.receiver}
+
+    @staticmethod
+    def required_models():
+        return {BalanceModel.fqdn}
+
+    def required_keys(self):
+        return {self.receiver}
+
+    @staticmethod
+    def pack(registry, obj):
+        return {
+            "receiver": obj.receiver,
+            "amount": obj.amount,
+        }
+
+    @classmethod
+    def unpack(cls, registry, payload):
+        return cls(
+            receiver=payload["receiver"],
+            amount=payload["amount"],
+        )
+
+    def verify(self, state_slice):
+        balances = state_slice[BalanceModel.fqdn]
+
+        if self.amount <= 0:
+            raise free_money.error.InvalidAmountError("Transfer amount must be more than 0")
+
+    def apply(self, state_slice):
+        balances = state_slice[BalanceModel.fqdn]
+        balances[self.receiver].balance += self.amount
+```
+
+Once again, take the time to read through this code line by line. It's not too hard to get your head around the things going on here.
+
+#### Writing the FreeMoney client.
+
+The client side code is a bit more complex than the Transforms. There are two ways of going about it. We're going to do it the long way first, packing up and hashing our own objects, and then POSTing them to the backend API.
+
+
 
 ---
