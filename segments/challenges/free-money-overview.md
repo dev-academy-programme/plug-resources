@@ -141,6 +141,54 @@ Once again, take the time to read through this code line by line. It's not too h
 
 The client side code is a bit more complex than the Transforms. There are two ways of going about it. We're going to do it the long way first, packing up and hashing our own objects, and then POSTing them to the backend API.
 
+Here in `free_money.py`, we start by registering the free money event in the register. You will also need to create a new instance of the User class, and pass in the `signing_key_input` to make sure you get back the correct User object.
 
+```
+...
+import asyncio
+
+async def init_free_money(signing_key_input):
+    registry = Registry().with_default()
+    registry.register(Event)
+    registry.register(FreeMoney)
+
+    user = await User.load(signing_key_input)
+```
+
+Once that is done, we now have everything required to create a new instance of our FreeMoney transform.
+
+```
+...
+
+  transform = FreeMoney(
+    receiver=user.address,
+    amount=1000,
+    )
+```
+
+
+
+```
+...
+
+  challenge = transform.hash(sha256)
+  proof = SingleKeyProof(user.address, user.nonce, challenge, 'challenge.FreeMoney')
+  proof.sign(user.signing_key)
+  transaction = Transaction(transform, {proof.address: proof})
+```
+
+    event = Event(
+        event=TransactionEvent.ADD,
+        payload=transaction
+    )
+
+    payload = registry.pack(event)
+
+    async with aiohttp.ClientSession() as session:
+        async with session.post("http://localhost:8181/_api/v1/transaction", json=payload) as response:
+            data = await response.json()
+
+    print(data)
+```
 
 ---
