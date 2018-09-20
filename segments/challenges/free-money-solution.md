@@ -6,7 +6,7 @@ This outlines a sample solution to the [Free Money Challenge](https://github.com
 
 At the top of your BalanceTransfer function, you must initialize all of the local properties. These properties will all be set once the object is packed into the registry.
 
-```
+```python
 @dataclass
 class BalanceTransfer(Transform):
     fqdn = "tutorial.BalanceTransfer"
