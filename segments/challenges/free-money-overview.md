@@ -208,6 +208,10 @@ It's a very dense process, but one step logically follows on to another. If thes
 
 #### Using the Plug API Client.
 
+If you haven't already, head over to this page on the [Plug API Client](.,/plug/api-client.md) and make sure you understand what's going on over there. All of the example code for using the API Client is lifted from the solution to this Free Money challenge.
+
+Changing our current scripts to use the `api_client` is quite a bit of work, but it will lead to much cleaner, more manageable code.
+
 
 
 ---
