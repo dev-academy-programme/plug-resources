@@ -206,4 +206,8 @@ Take a moment to read back over all of this code, and make sure that you underst
 
 It's a very dense process, but one step logically follows on to another. If these concepts are very foreign to you, try checking out the [resource on blockchain]('../crypto/blockchain.md) in this module.
 
+#### Using the Plug API Client.
+
+
+
 ---
