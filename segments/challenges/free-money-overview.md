@@ -212,7 +212,7 @@ If you haven't already, head over to this page on the [Plug API Client](.,/plug/
 
 Changing our current scripts to use the `api_client` is quite a bit of work, but it will lead to much cleaner, more manageable code.
 
-##### Setup
+##### API Client Walkthrough
 
 You'll need to create a couple of new files inside your `client` directory. First, `key_manager.py`, which looks like this:
 
@@ -273,10 +273,12 @@ async def init_free_money(address_input, amount):
     print(response)
 ```
 
-_This_ is really amazing. All of that complicated code from before doing the hashing and proofing and packaging; condensed down into a tight little function. Use this as a template to 
+_This_ is really amazing. All of that complicated code from before doing the hashing and proofing and packaging; condensed down into a tight little function. The `broadcast_transform()` method does it all for us!
 
-
-
-
+ Use this as a template to re-write the `transaction.py` file too. It will mostly be the same as in this example.
 
 ---
+
+##### What next?
+
+- Read the documentation for the `api_client` and familiarize yourself with the methods in there.
