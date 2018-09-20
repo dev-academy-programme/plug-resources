@@ -190,7 +190,7 @@ Now that we have the `challenge`, `proof` and `transaction` objects all ready to
     payload = registry.pack(event)
 ```
 
-And finally, the transform event is all good to go, and ready to be send off to the API. This block will finish off the script:
+And finally, the transform event is all good to go, and ready to be sent off to the API. This block will finish off the script:
 
 ```
     ...
@@ -201,3 +201,9 @@ And finally, the transform event is all good to go, and ready to be send off to 
 
             print(data)
 ```
+
+Take a moment to read back over all of this code, and make sure that you understand everything that is happening along the way. It is a fairly straight forward series of events: First, the `User` object is instantiated. The User's `address` is then passed into the `FreeMoney` transform that we wrote earlier. The transform is then hashed and turned into a `challenge`, which in turn is used to create the `proof`, which then gets signed with the Users `signing_key`. All of this comprises a `transaction`, which is then turned into an `event`. Finally, the event is packed into the `registry` and `payload`, and POSTed to the correct route.
+
+It's a very dense process, but one step logically follows on to another. If these concepts are very foreign to you, try checking out the [resource on blockchain]('../crypto/blockchain.md) in this module.
+
+---
