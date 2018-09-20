@@ -166,7 +166,7 @@ Once that is done, we now have everything required to create a new instance of o
     )
 ```
 
-
+Now it's time for the complicated stuff. Fortunately, it's mostly just complicated for the computer. This block on `challenge`s, `proof`s and `transaction`s will look pretty similar in all of your client side code. And, other than tweaking a few minor details, you won't ever have to change much to get this working elsewhere.
 
 ```
 ...
@@ -177,18 +177,27 @@ Once that is done, we now have everything required to create a new instance of o
   transaction = Transaction(transform, {proof.address: proof})
 ```
 
+Now that we have the `challenge`, `proof` and `transaction` objects all ready to go, it's time to pack them up into an `event`, and then into a `payload` to POST over HTTP to the api backend.
+
+```
+    ...
+
     event = Event(
         event=TransactionEvent.ADD,
         payload=transaction
     )
 
     payload = registry.pack(event)
+```
+
+And finally, the transform event is all good to go, and ready to be send off to the API. This block will finish off the script:
+
+```
+    ...
 
     async with aiohttp.ClientSession() as session:
         async with session.post("http://localhost:8181/_api/v1/transaction", json=payload) as response:
             data = await response.json()
 
-    print(data)
+            print(data)
 ```
-
----
