@@ -16,7 +16,8 @@ After completing the Free Money Challenge, you should feel confident in your und
 - What [Models](../plug/models.md) are, and how they work.
 - The process of creating a new [Transform](../plug/transforms.md) to manipulate the state of the blockchain.
 - How to write client side code to manually POST Transform events to the server.
-- The basics of the [Plug client_api](.,/plug/api-client.md), and how to get it POSTing your Transform events for you.
+- The basics of the [Plug client_api](.,/plug/api-client.md), and how to get it posting your Transform events for you.
+- Using the `key_manager` to generate and store local keys.
 
 ## Instructions:
 
@@ -24,7 +25,7 @@ General instructions for the [Free Money Challenge can be found here,](https://g
 
 #### Writing the BalanceTransfer transform.
 
-At the top of your BalanceTransfer function, you must initialize all of the local properties:
+At the top of your BalanceTransfer function, you must initialize all of the local properties. These properties will all be set once the object is packed into the registry.
 
 ```
 @dataclass
@@ -35,7 +36,7 @@ class BalanceTransfer(Transform):
     amount: int
 ```
 
-These properties will all be set once the object is packed into the registry. This next part of the class is fairly boilerplate, and will look similar across most of the Transforms you will write:
+ This next part of the class is fairly boilerplate, and will look similar across most of the Transforms you will write. It specifies the different authorizations, models and keys required to perform the Transform - as well as instructions for how to handle packing/unpacking the object.
 
 ```
     ...
@@ -67,7 +68,7 @@ These properties will all be set once the object is packed into the registry. Th
         )
 ```
 
-The final required methods are the `verify()` and `apply()`. They handle the actual business logic of the Transform:
+The final required methods are the `verify()` and `apply()`. They handle the actual business logic of the script. Most of the action inside a Transform will generally take place inside these two functions.
 
 ```
     ...
