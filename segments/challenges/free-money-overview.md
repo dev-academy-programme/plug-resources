@@ -233,7 +233,47 @@ def get_api_client():
     return PlugApiClient("http://localhost:8181", get_key_manager())
 ```
 
-This requires in the `key_manager` function from before, and passes it into the constructor for the PlugApiClient.
+This requires in the `key_manager` function from before, and passes it into the constructor for the PlugApiClient. Now _this_ script can be required in whenever we need to interact with the api_client. Let's look at an example of that now in `user.py`.
+
+```
+from api_client import get_api_client
+from key_manager import get_key_manager
+
+class User:
+    client = get_api_client()
+    key_manager = get_key_manager()
+    network_id = client.network_id
+
+    def __init__(self):
+      self.address = self.key_manager.generate()
+      self.key_manager.set_nonce(self.address, self.network_id, 0)
+```
+
+The entire class just looks like this now. The key manager handles the generation and local storage of the keys for us.
+Next let's explore how the api_client is used to interact with our Transforms in `free_money_client.py`:
+
+```
+from plug.message import Event
+from plug.registry import Registry
+
+from client.api_client import get_api_client
+from register import register_transform_event
+
+from free_money.transform import FreeMoney
+from user import User
+
+async def init_free_money(address_input, amount):
+    register_transform_event(FreeMoney)
+
+    response = get_api_client().broadcast_transform(FreeMoney(
+        receiver=address_input,
+        amount=int(amount),
+    ))
+
+    print(response)
+```
+
+_This_ is really amazing. All of that complicated code from before doing the hashing and proofing and packaging; condensed down into a tight little function. Use this as a template to 
 
 
 
