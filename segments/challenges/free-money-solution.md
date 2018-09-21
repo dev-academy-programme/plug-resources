@@ -17,7 +17,7 @@ class BalanceTransfer(Transform):
 
  This next part of the class is fairly boilerplate, and will look similar across most of the Transforms you will write. It specifies the different authorizations, models and keys required to perform the Transform - as well as instructions for how to handle packing/unpacking the object.
 
-```
+```python
     ...
 
     def required_authorizations(self):
@@ -49,7 +49,7 @@ class BalanceTransfer(Transform):
 
 The final required methods are the `verify()` and `apply()`. They handle the actual business logic of the script. Most of the action inside a Transform will generally take place inside these two functions.
 
-```
+```python
     ...
 
     def verify(self, state_slice):
@@ -73,7 +73,7 @@ This completes the transform. It's a very straight forward process if you actual
 
 The FreeMoney transform is virtually identical to BalanceTransfer. It doesn't require a sender, and the `verify()` / `apply()` methods are slimmed down a little too.
 
-```
+```python
 @dataclass
 class FreeMoney(Transform):
     fqdn = "tutorial.FreeMoney"
@@ -115,7 +115,7 @@ class FreeMoney(Transform):
         balances[self.receiver].balance += self.amount
 ```
 
-Once again, take the time to read through this code line by line. 
+Once again, take the time to read through this code line by line.
 
 #### Writing the FreeMoney client.
 
@@ -123,7 +123,7 @@ The client side code is a bit more complex than the Transforms. There are two wa
 
 Here in `free_money.py`, we start by registering the free money event in the register. You will also need to create a new instance of the User class, and pass in the `signing_key_input` to make sure you get back the correct User object.
 
-```
+```python
 ...
 import asyncio
 
@@ -137,7 +137,7 @@ async def init_free_money(signing_key_input):
 
 Once that is done, we now have everything required to create a new instance of our FreeMoney transform.
 
-```
+```python
 ...
 
   transform = FreeMoney(
@@ -148,7 +148,7 @@ Once that is done, we now have everything required to create a new instance of o
 
 Now it's time for the complicated stuff. Fortunately, it's mostly just complicated for the computer. This block on `challenge`s, `proof`s and `transaction`s will look pretty similar in all of your client side code. And, other than tweaking a few minor details, you won't ever have to change much to get this working elsewhere.
 
-```
+```python
 ...
 
   challenge = transform.hash(sha256)
@@ -159,7 +159,7 @@ Now it's time for the complicated stuff. Fortunately, it's mostly just complicat
 
 Now that we have the `challenge`, `proof` and `transaction` objects all ready to go, it's time to pack them up into an `event`, and then into a `payload` to POST over HTTP to the api backend.
 
-```
+```python
     ...
 
     event = Event(
@@ -172,7 +172,7 @@ Now that we have the `challenge`, `proof` and `transaction` objects all ready to
 
 And finally, the transform event is all good to go, and ready to be sent off to the API. This block will finish off the script:
 
-```
+```python
     ...
 
     async with aiohttp.ClientSession() as session:
@@ -196,7 +196,7 @@ Changing our current scripts to use the `api_client` is quite a bit of work, but
 
 You'll need to create a couple of new files inside your `client` directory. First, `key_manager.py`, which looks like this:
 
-```
+```python
 from plug_api.key_managers.sqlite import SqliteKeyManager
 
 def get_key_manager():
@@ -205,7 +205,7 @@ def get_key_manager():
 
 This file can now be required in elsewhere in the project whenever you need to interact with signing keys. Next, create `api_client.py`, and set it up like this:
 
-```
+```python
 from key_manager import get_key_manager
 from plug_api.clients.v1 import PlugApiClient
 
@@ -215,7 +215,7 @@ def get_api_client():
 
 This requires in the `key_manager` function from before, and passes it into the constructor for the PlugApiClient. Now _this_ script can be required in whenever we need to interact with the api_client. Let's look at an example of that now in `user.py`.
 
-```
+```python
 from api_client import get_api_client
 from key_manager import get_key_manager
 
@@ -232,7 +232,7 @@ class User:
 The entire class just looks like this now. The key manager handles the generation and local storage of the keys for us.
 Next let's explore how the api_client is used to interact with our Transforms in `free_money_client.py`:
 
-```
+```python
 from plug.message import Event
 from plug.registry import Registry
 
