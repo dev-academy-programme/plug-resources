@@ -12,9 +12,9 @@ If you build from root (here), the resulting book will include both the `teachin
 Install gitbook CLI
 
 ```sh
-yarn add global gitbook
+yarn add global gitbook-cli
  - or -
-npm install -g gitbook
+npm install -g gitbook-cli
 ```
 
 For building full book, stay in this root directory.
