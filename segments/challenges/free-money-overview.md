@@ -6,8 +6,7 @@ The purpose of this challenge is to get a better understanding of how new Transf
 - Transfer money between two Users.
 - Give some free money to a specific User.
 
-You can find the [Free Money Challenge here.](https://github.com/dev-academy-programme/plug-intro)
-{{book.plug-intro}}
+You can find the [Free Money Challenge here.]({{book.intro}})
 
 After completing the Free Money Challenge, you should feel confident in your understanding of the following areas:
 
@@ -19,4 +18,4 @@ After completing the Free Money Challenge, you should feel confident in your und
 
 ## Instructions:
 
-General instructions for the [Free Money Challenge can be found here,](https://github.com/dev-academy-programme/plug-intro) and [a walk through of the solution here]('./free-money-solution'). You should try working through the challenge yourself before consulting the solution.
+General instructions for the [Free Money Challenge can be found here,]({{book.intro}}) and [a walk through of the solution here]('./free-money-solution'). You should try working through the challenge yourself before consulting the solution.
