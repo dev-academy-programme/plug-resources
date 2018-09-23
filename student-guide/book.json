@@ -7,7 +7,7 @@
     }
   },
   "variables": {
-    "cohort": "https://github.com/dev-academty-challenges/",
+    "intro": "http://github.com/dev-academy-programme/plug-intro/",
     "source": "https://github.com/dev-academy-challenges/",
     "concepts": "git+https://github.com/dev-academy-programme/concepts.git/",
     "concept-image": "https://raw.githubusercontent.com/dev-academy-programme/concepts/master/images/",

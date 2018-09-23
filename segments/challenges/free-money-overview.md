@@ -7,6 +7,7 @@ The purpose of this challenge is to get a better understanding of how new Transf
 - Give some free money to a specific User.
 
 You can find the [Free Money Challenge here.](https://github.com/dev-academy-programme/plug-intro)
+{{book.plug-intro}}
 
 After completing the Free Money Challenge, you should feel confident in your understanding of the following areas:
 
