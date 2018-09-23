@@ -1,6 +1,8 @@
 # Free Money Student Guide
 
-You will find the [Free Money Challenge here]({{ book.intro }})
+For an overview of the Free Money Challenge, [consult the Free Money Overview](../segments/challenges/free-money-overview.md).
+
+You will find the full [Free Money Challenge here]({{ book.intro }}).
 
 
 ## Index
