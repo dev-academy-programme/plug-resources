@@ -1,6 +1,6 @@
 # Free Money Challenge Solution
 
-This outlines a sample solution to the [Free Money Challenge](https://github.com/dev-academy-programme/plug-intro)
+This outlines a sample solution to the [Free Money Challenge]({{book.intro}})
 
 #### Writing the BalanceTransfer transform.
 

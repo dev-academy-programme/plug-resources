@@ -54,7 +54,7 @@ When you are looking at your solution, compare it to [Our Solution Branch]({{boo
 
 Take notes! A lot of the code you have written for this exercise will be reused in a similar form in the next exercise(s), so be sure to note down what you have learned so you can come back to it later.
 
-Take notes from the [Resources](../segments) that we have linked in this guide, and [Our Solution Branch](https://github.com/dev-academy-programme/plug-intro/tree/staging).
+Take notes from the [Resources](../segments) that we have linked in this guide, and [Our Solution Branch]({{book.intro}}tree/staging).
 
 Take note of concepts or code that is still mysterious to you so that you may ask a Teacher or do some "internet research" later on.
 
