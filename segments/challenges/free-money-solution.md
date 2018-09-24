@@ -1,17 +1,17 @@
 # Free Money Challenge Solution
 
-This outlines a sample solution to the [Free Money Challenge]({{book.intro}})
+This page outlines some potential solutions for the [Free Money Challenge]({{book.intro}}).
+The sample solution code walks through creating a "UnexpectedExpense" Transform, which subtracts some money from a specific User. The solutions can be reworked to help you solve the Free Money Challenge.
 
-#### Writing the BalanceTransfer transform.
+#### Writing the UnexpectedExpense transform.
 
-At the top of your BalanceTransfer function, you must initialize all of the local properties. These properties will all be set once the object is packed into the registry.
+At the top of your UnexpectedExpense function, you must initialize all of the local properties. These properties will all be set once the object is packed into the registry.
 
 ```python
 @dataclass
-class BalanceTransfer(Transform):
-    fqdn = "tutorial.BalanceTransfer"
-    sender: str
-    receiver: str
+class UnexpectedExpense(Transform):
+    fqdn = "tutorial.UnexpectedExpense"
+    user: str
     amount: int
 ```
 
@@ -21,28 +21,26 @@ class BalanceTransfer(Transform):
     ...
 
     def required_authorizations(self):
-        return {self.sender}
+        return {self.user}
 
     @staticmethod
     def required_models():
         return {BalanceModel.fqdn}
 
     def required_keys(self):
-        return {self.sender, self.receiver}
+        return {self.user}
 
     @staticmethod
     def pack(registry, obj):
         return {
-            "sender": obj.sender,
-            "receiver": obj.receiver,
+            "user": obj.user,
             "amount": obj.amount,
         }
 
     @classmethod
     def unpack(cls, registry, payload):
         return cls(
-            sender=payload["sender"],
-            receiver=payload["receiver"],
+            receiver=payload["user"],
             amount=payload["amount"],
         )
 ```
@@ -56,92 +54,43 @@ The final required methods are the `verify()` and `apply()`. They handle the act
         balances = state_slice[BalanceModel.fqdn]
 
         if self.amount <= 0:
-            raise free_money.error.InvalidAmountError("Transfer amount must be more than 0")
+            raise unexpected_expense.error.InvalidAmountError("Expense amount must be more than 0")
 
-        if balances[self.sender].balance < self.amount:
-            raise free_money.error.NotEnoughMoneyError("Insufficient funds")
+        if balances[self.user].balance <= 0:
+            raise unexpected_expense.error.NotEnoughMoneyError("User is already broke")
 
     def apply(self, state_slice):
         balances = state_slice[BalanceModel.fqdn]
-        balances[self.sender].balance -= self.amount
-        balances[self.receiver].balance += self.amount
+        balances[self.user].balance -= self.amount
 ```
 
 This completes the transform. It's a very straight forward process if you actually just read it through line by line. It has a few properties, and some methods for packing/unpacking events, and verifying/applying transformations on the state.
 
-#### Writing the FreeMoney transform.
-
-The FreeMoney transform is virtually identical to BalanceTransfer. It doesn't require a sender, and the `verify()` / `apply()` methods are slimmed down a little too.
-
-```python
-@dataclass
-class FreeMoney(Transform):
-    fqdn = "tutorial.FreeMoney"
-    receiver: str
-    amount: int
-
-    def required_authorizations(self):
-        return {self.receiver}
-
-    @staticmethod
-    def required_models():
-        return {BalanceModel.fqdn}
-
-    def required_keys(self):
-        return {self.receiver}
-
-    @staticmethod
-    def pack(registry, obj):
-        return {
-            "receiver": obj.receiver,
-            "amount": obj.amount,
-        }
-
-    @classmethod
-    def unpack(cls, registry, payload):
-        return cls(
-            receiver=payload["receiver"],
-            amount=payload["amount"],
-        )
-
-    def verify(self, state_slice):
-        balances = state_slice[BalanceModel.fqdn]
-
-        if self.amount <= 0:
-            raise free_money.error.InvalidAmountError("Transfer amount must be more than 0")
-
-    def apply(self, state_slice):
-        balances = state_slice[BalanceModel.fqdn]
-        balances[self.receiver].balance += self.amount
-```
-
-Once again, take the time to read through this code line by line.
-
-#### Writing the FreeMoney client.
+#### Writing the UnexpectedExpense client.
 
 The client side code is a bit more complex than the Transforms. There are two ways of going about it. We're going to do it the long way first, packing up and hashing our own objects, and then POSTing them to the backend API.
 
-Here in `free_money.py`, we start by registering the free money event in the register. You will also need to create a new instance of the User class, and pass in the `signing_key_input` to make sure you get back the correct User object.
+Here in `unexpected_expense.py`, we start by registering the unexpected expense event in the register. You will also need to create a new instance of the User class, and pass in the `signing_key_input` to make sure you get back the correct User object.
 
 ```python
 ...
 import asyncio
 
-async def init_free_money(signing_key_input):
+async def init_unexpected_expense(signing_key_input):
     registry = Registry().with_default()
     registry.register(Event)
-    registry.register(FreeMoney)
+    registry.register(UnexpectedExpense)
 
     user = await User.load(signing_key_input)
 ```
 
-Once that is done, we now have everything required to create a new instance of our FreeMoney transform.
+Once that is done, we now have everything required to create a new instance of our UnexpectedExpense transform.
 
 ```python
 ...
 
-  transform = FreeMoney(
-    receiver=user.address,
+  transform = UnexpectedExpense(
+    user=user.address,
     amount=1000,
     )
 ```
@@ -152,7 +101,7 @@ Now it's time for the complicated stuff. Fortunately, it's mostly just complicat
 ...
 
   challenge = transform.hash(sha256)
-  proof = SingleKeyProof(user.address, user.nonce, challenge, 'challenge.FreeMoney')
+  proof = SingleKeyProof(user.address, user.nonce, challenge, 'challenge.UnexpectedExpense')
   proof.sign(user.signing_key)
   transaction = Transaction(transform, {proof.address: proof})
 ```
@@ -182,13 +131,13 @@ And finally, the transform event is all good to go, and ready to be sent off to 
             print(data)
 ```
 
-Take a moment to read back over all of this code, and make sure that you understand everything that is happening along the way. First, the `User` object is instantiated. The User's `address` is then passed into the `FreeMoney` transform that we wrote earlier. The transform is then hashed and turned into a `challenge`, which in turn is used to create the `proof`, which then gets signed with the Users `signing_key`. All of this comprises a `transaction`, which is then turned into an `event`. Finally, the event is packed into the `registry` and `payload`, and POSTed to the correct route.
+Take a moment to read back over all of this code, and make sure that you understand everything that is happening along the way. First, the `User` object is instantiated. The User's `address` is then passed into the `UnexpectedExpense` transform that we wrote earlier. The transform is then hashed and turned into a `challenge`, which in turn is used to create the `proof`, which then gets signed with the Users `signing_key`. All of this comprises a `transaction`, which is then turned into an `event`. Finally, the event is packed into the `registry` and `payload`, and POSTed to the correct route.
 
 It's a dense process, but one step logically follows on to another. If these concepts are very foreign to you, try checking out the [resource on blockchain]({{book.blockchain}}) in this module.
 
 #### Using the Plug API Client.
 
-If you haven't already, head over to this page on the [Plug API Client]({{book.api-client}}) and follow the setup instructions. All of the example code for using the API Client is lifted from the solution to this Free Money challenge.
+If you haven't already, head over to this page on the [Plug API Client]({{book.api-client}}) and follow the setup instructions. All of the example code for using the API Client is lifted from the solution to the Free Money challenge.
 
 Changing our current scripts to use the `api_client` is quite a bit of work, but it will lead to much cleaner, more manageable code.
 
@@ -230,7 +179,7 @@ class User:
 ```
 
 The entire class just looks like this now. The key manager handles the generation and local storage of the keys for us.
-Next let's explore how the api_client is used to interact with our Transforms in `free_money_client.py`:
+Next let's explore how the api_client is used to interact with our Transforms in `unexpected_expense_client.py`:
 
 ```python
 from plug.message import Event
@@ -239,14 +188,14 @@ from plug.registry import Registry
 from client.api_client import get_api_client
 from register import register_transform_event
 
-from free_money.transform import FreeMoney
+from unexpected_expense.transform import UnexpectedExpense
 from user import User
 
-async def init_free_money(address_input, amount):
-    register_transform_event(FreeMoney)
+async def init_unexpected_expense(address_input, amount):
+    register_transform_event(UnexpectedExpense)
 
-    response = get_api_client().broadcast_transform(FreeMoney(
-        receiver=address_input,
+    response = get_api_client().broadcast_transform(UnexpectedExpense(
+        user=address_input,
         amount=int(amount),
     ))
 
@@ -254,8 +203,6 @@ async def init_free_money(address_input, amount):
 ```
 
 _This_ is really amazing. All of that complicated code from before doing the hashing and proofing and packaging; condensed down into a tight little function. The `broadcast_transform()` method does it all for us!
-
- Use this as a template to re-write the `transaction.py` file too. It will mostly be the same as in this example.
 
 ---
 

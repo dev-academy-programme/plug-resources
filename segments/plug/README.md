@@ -5,9 +5,9 @@
 ### Getting started
 * [Prerequisites]({{book.prerequisites}})
 * [Setup]({{book.setup}})
-* [Scaffolding from CookieCutter]({{book.cookie-cutter})
+* [Scaffolding from CookieCutter]({{book.cookie-cutter}})
 
 ### Components of a Plugin
 * [Models]({{book.models}})
 * [Transforms]({{book.transforms}})
-*
+  
