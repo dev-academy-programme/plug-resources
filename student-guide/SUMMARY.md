@@ -21,6 +21,7 @@ We have provided links to resources you will want to read through for technical 
     * [Functions](segments/python/functions.md)
     * [Imports](segments/python/imports.md)
     * [Classes](segments/python/classes.md)
+    * [Unit Testing](segments/python/unit_testing.md)
   * [Plug](segments/plug/README.md)
     * [Prerequisites](segments/plug/prerequisites.md)
     * [Setup](segments/plug/setup.md)
