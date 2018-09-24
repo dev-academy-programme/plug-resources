@@ -5,6 +5,7 @@
   * [Define a test](#define-a-test)
   * [Test Structure Convention](#test-structure-convention)
   * [Mocking your Modules](#mocking-your-own-modules)
+  * [Expecting Errors](#expecting-errors)
 
 ## Setup
 
@@ -16,6 +17,17 @@ You can includes files that do not include `test_` in their name and they will n
 This is a great way of [mocking modules](#mocking-your-own-modules), as you can simulate your import structure but only use the module you are testing.
 
 ## Define a Test
+
+Defining a test within a test file is simple. Define a function within your `test_*.py`/`*_test.py` file, where the function name begins with `test_`.
+
+You will also need to make sure you import `pytest` at the top of the file.
+
+``` py
+import pytest
+
+def test_function():
+  ## Do test stuff here
+```
 
 ## Test Structure Convention
 
@@ -133,3 +145,12 @@ def test_say_hello():
 This test will pass, as when `say_hello` is run within the test context, it import our mock `capitlise` from `tests/methods.py`, and will not actually alter the name.
 
 With this method we can be sure that we are unit testing `say_hello` exclusively, and the results of our test are not dependant on `capitlise` performing as it should.
+
+## Expecting Errors
+
+In some cases you will want to set up a test where the action should raise an exception / error. With pytest you can ensure that the correct error will occur with the code:
+
+``` py
+with pytest.raises(expected_error):
+  """Act here"""
+```
