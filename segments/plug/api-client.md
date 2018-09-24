@@ -13,8 +13,6 @@
 The Plug API Client is a library for sending requests to Plug nodes via the HTTP
 API. It provides several classes to make interacting with the nodes faster, and helps with local storage of signing keys, addresses and nonces.
 
-[Read this link](../to-something.md)
-
 ## Using the API
 
 After installing the `plug/libs/plug-api-1.6.1.tar.gz` library into your project, a new instance of the PlugApiClient can be created. The initializer requires two arguments:
