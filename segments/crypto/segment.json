@@ -1,4 +1,4 @@
 {
-  "dependencies": ["transforms"],
+  "dependencies": ["transforms", "decentralisation", "blockchain"],
   "version": 1.0
 }
