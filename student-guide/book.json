@@ -9,6 +9,9 @@
   "variables": {
     "intro": "http://github.com/dev-academy-programme/plug-intro/",
     "transforms": "/segments/plug/transforms.md",
+    "solution": "/segments/challenges/free-money-solution.md",
+    "models": "/segments/plug/models.md",
+    "overview": "/segments/challenges/free-money-overview.md",
     "source": "https://github.com/dev-academy-challenges/",
     "concepts": "git+https://github.com/dev-academy-programme/concepts.git/",
     "concept-image": "https://raw.githubusercontent.com/dev-academy-programme/concepts/master/images/",
