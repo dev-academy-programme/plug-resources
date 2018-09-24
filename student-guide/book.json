@@ -8,6 +8,7 @@
   },
   "variables": {
     "intro": "http://github.com/dev-academy-programme/plug-intro/",
+    "transforms": "/segments/plug/transforms.md",
     "source": "https://github.com/dev-academy-challenges/",
     "concepts": "git+https://github.com/dev-academy-programme/concepts.git/",
     "concept-image": "https://raw.githubusercontent.com/dev-academy-programme/concepts/master/images/",

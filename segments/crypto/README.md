@@ -7,4 +7,4 @@
 * [Decentralisation](./decentralisation.md)
 
 ### Technical
-* [Transforms]  
+* [Transforms]({{book.transforms}})

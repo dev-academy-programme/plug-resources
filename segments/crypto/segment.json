@@ -1,3 +1,4 @@
 {
-  "dependencies": []
+  "dependencies": ["transforms"],
+  "version": 1.0
 }
