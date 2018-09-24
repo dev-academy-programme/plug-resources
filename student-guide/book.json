@@ -8,7 +8,9 @@
   },
   "variables": {
     "intro": "http://github.com/dev-academy-programme/plug-intro/",
+    "api-client": "/segments/plug/api-client.md",
     "transforms": "/segments/plug/transforms.md",
+    "blockchain": "/segments/crypto/blockchain.md",
     "solution": "/segments/challenges/free-money-solution.md",
     "models": "/segments/plug/models.md",
     "overview": "/segments/challenges/free-money-overview.md",

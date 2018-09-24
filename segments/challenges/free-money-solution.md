@@ -184,11 +184,11 @@ And finally, the transform event is all good to go, and ready to be sent off to 
 
 Take a moment to read back over all of this code, and make sure that you understand everything that is happening along the way. First, the `User` object is instantiated. The User's `address` is then passed into the `FreeMoney` transform that we wrote earlier. The transform is then hashed and turned into a `challenge`, which in turn is used to create the `proof`, which then gets signed with the Users `signing_key`. All of this comprises a `transaction`, which is then turned into an `event`. Finally, the event is packed into the `registry` and `payload`, and POSTed to the correct route.
 
-It's a dense process, but one step logically follows on to another. If these concepts are very foreign to you, try checking out the [resource on blockchain]('../crypto/blockchain.md) in this module.
+It's a dense process, but one step logically follows on to another. If these concepts are very foreign to you, try checking out the [resource on blockchain]({{book.blockchain}}) in this module.
 
 #### Using the Plug API Client.
 
-If you haven't already, head over to this page on the [Plug API Client](../plug/api-client.md) and follow the setup instructions. All of the example code for using the API Client is lifted from the solution to this Free Money challenge.
+If you haven't already, head over to this page on the [Plug API Client]({{book.api-client}}) and follow the setup instructions. All of the example code for using the API Client is lifted from the solution to this Free Money challenge.
 
 Changing our current scripts to use the `api_client` is quite a bit of work, but it will lead to much cleaner, more manageable code.
 
