@@ -27,3 +27,4 @@ We have provided links to resources you will want to read through for technical 
     * [Cookie Cutter Scaffold](segments/plug/cookie-cutter.md)
     * [Models](segments/plug/models.md)
     * [Transforms](segments/plug/transforms.md)
+    * [Initial State](segments/plug/initial_state.md)
