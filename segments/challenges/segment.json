@@ -1,0 +1,4 @@
+{
+  "dependencies": ["transforms", "models", "client-api", "blockchain", "solution"],
+  "version": 1.0
+}

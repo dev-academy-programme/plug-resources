@@ -3,11 +3,11 @@
 ## Index
 
 ### Getting started
-* [Prerequisites](./prerequisites.md)
-* [Setup](./setup.md)
-* [Scaffolding from CookieCutter](./cookie-cutter.md)
+* [Prerequisites]({{book.prerequisites}})
+* [Setup]({{book.setup}})
+* [Scaffolding from CookieCutter]({{book.cookie-cutter}})
 
 ### Components of a Plugin
-* [Models](./models.md)
-* [Transforms](./transforms.md)
-*
+* [Models]({{book.models}})
+* [Transforms]({{book.transforms}})
+  

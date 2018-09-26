@@ -14,9 +14,6 @@
 
 Models define domain-specific data types/structures.
 
-[Read more about Models in Crypto](../crypto/models.md)
-
-
 ## Creating a Model
 
 To create a new model, write a class that extends `plug.abstract.Model` and define a unique `fqdn`.
