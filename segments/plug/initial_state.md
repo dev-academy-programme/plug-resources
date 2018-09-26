@@ -2,14 +2,14 @@
 
 ## What does this mean?
 
-An iniital state for your plugin means that there are set values, described by your [Models](models.md).
+An initial state for your plugin means that there are set values, described by your [Models](models.md).
 This initial state will be the state that your plugin will hold in each node upon starting.
 
 If you are building a plugin that stores user balances, you may want some initial users to exist within the node, and those users can have set initial balances.
 
 Initial States are useful for testing locally, but your project may also require that a state exists to begin with.
 
-## How do I set an Iniital State?
+## How do I set an Initial State?
 
 The initial state is described in your main `config.yaml` file.
 
@@ -29,10 +29,8 @@ plug:
   initial_state:
     example.BalanceModel:
       ABC: #public key indexing model
-        public_key: "ABC" #User Public Key
         balance: 100 #This is the initial balance for this "fake user"
-      123:
-        signing_key: "123"
+      DEF:
         balance: 200
 ```
 
@@ -43,10 +41,9 @@ plug:
   initial_state:
     example.FollowingModel:
       ABC: #public key of user indexing the model
-        public_key: "ABC" #User Public Key
         following: #Model inner list
-          - public_key: "123" #list entry
-          - public_key: "xyz" #list entry
+          - "123" #list entry
+          - "xyz" #list entry
 ```
 
 Each use of a `-` indented below your Models inner list name describes a new entry within that list in the initial state.
