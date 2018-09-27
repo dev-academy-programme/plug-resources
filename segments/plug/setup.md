@@ -1,10 +1,10 @@
 # Setup
 
 ## Index
-* [prerequisites](./prerequisites.md)
+* [prerequisites]({{book.prerequisites}})
 * [pipenv / virtual environment](#virtual-environment)
-* [Plug Libraries](./plug-libraries)
-* [Installing Local Plugin](./installing-local-plugin)
+* [Plug Libraries](#plug-libraries)
+* [Installing Local Plugin](#installing-local-plugin)
 * [Pipfile](#Pipfile)
 * [Creating a Node](#creating-a-node)
 * [Running your Node](#running-your-node)
@@ -44,7 +44,7 @@ pipenv install <LOCAL_PATH_TO>/plug-api-1.6.1.tar.gz
 
 ## Installing Local Plugion
 
-[Setting up a Cookie Cutter Plugin](./cookie-cutter.md)
+[Setting up a Cookie Cutter Plugin]({{book.cookie-cutter}})
 
 If you have a plugin within your app, you will first need a config.yaml file that points to the plugin.
 Here is example of a config.yaml file

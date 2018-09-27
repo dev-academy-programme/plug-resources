@@ -7,15 +7,8 @@
     }
   },
   "variables": {
-    "cohort": "https://github.com/dev-academty-challenges/",
-    "source": "https://github.com/dev-academy-challenges/",
-    "concepts": "git+https://github.com/dev-academy-programme/concepts.git/",
-    "concept-image": "https://raw.githubusercontent.com/dev-academy-programme/concepts/master/images/",
-    "phase0": {
-      "curriculum": "git+https://github.com/dev-academy-programme/curriculum.git",
-      "concept": "https://github.com/dev-academy-programme/curriculum/blob/master/concepts/",
-      "resource": "https://github.com/dev-academy-programme/curriculum/blob/master/resources/"
-    }
+    "plug-intro": "http://github.com/dev-academy-programme/plug-intro",
+    "concepts": "git+https://github.com/dev-academy-programme/concepts.git/"
   },
   "styles": {
     "website": "styles/website.css"

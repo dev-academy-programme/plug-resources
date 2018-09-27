@@ -1,0 +1,4 @@
+{
+  "dependencies": ["cookie-cutter", "prerequisites", "setup", "models", "transforms"],
+  "version": 1.0
+}

@@ -17,8 +17,6 @@
 
 Transforms are the controllers that execute the business logic of the module.
 
-[Read more about Transforms in Crypto](../crypto/transforms.md)
-
 ## Creating a Transform
 
 To write a Transform, write a class that extends `plug.abstract.Transform` class and define a unique `FQDN`.
@@ -46,7 +44,7 @@ The Transform’s functionality is divided (primarily) into two methods; `verify
 
 ### Verify()
 
-`verify()` checks the inputs for a transaction, and verfies the transaction against the current blockchain state.
+`verify()` checks the inputs for a transaction, and verifies the transaction against the current blockchain state.
 
 ``` py
 def verify(self, state_slice):
@@ -146,7 +144,7 @@ def required_models():
 
 In the case above, the `BalanceModel` is described at required, identified by it's unique `fqdn`. This is because the Balance Model describes the state of Balance, and BalanceTransfer is making changes to this state.
 
-[Read more about Models here](./models.md)
+[Read more about Models here]({{book.models}})
 
 #### required_keys()
 
