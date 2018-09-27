@@ -2,8 +2,6 @@
 
 To Build a book, navigate to the desired directory:
 
-If you build from root (here), the resulting book will include both the `teaching-guide` and `student-guide` resources.
-
 ## Build Student-Guide
 
 (Currently on instructions for local serving of book)
@@ -12,7 +10,7 @@ If you build from root (here), the resulting book will include both the `teachin
 Install gitbook CLI
 
 ```sh
-yarn add global gitbook-cli
+yarn global add gitbook-cli
  - or -
 npm install -g gitbook-cli
 ```
