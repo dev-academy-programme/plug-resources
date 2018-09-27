@@ -1,15 +1,10 @@
-# Setup
+# Create your own App
 
-## Index
-* [prerequisites]({{book.prerequisites}})
-* [pipenv / virtual environment](#virtual-environment)
-* [Plug Libraries](#plug-libraries)
-* [Installing Local Plugin](#installing-local-plugin)
-* [Pipfile](#Pipfile)
-* [Creating a Node](#creating-a-node)
-* [Running your Node](#running-your-node)
-
-You will want to be working from within your Python Virtual Environment. You can start this by running the command
+* [Pipenv / virtual environment](/segments/plug/create-app.md#virtual-environment)
+* [Installing Local Plugin](/segments/plug/create-app.md#installing-local-plugin)
+* [Pipfile](/segments/plug/create-app.md#Pipfile)
+* [Creating a Node](/segments/plug/create-app.md#creating-a-node)
+* [Running your Node](/segments/plug/create-app.md#running-your-node)
 
 ## Virtual Environment
 
@@ -24,25 +19,7 @@ pipenv shell
 
 within your project's root directory.
 
-## Plug libraries
-
-Next you will need to install the Plug libraries.
-
-!!!PLACEHOLDER (unsure where live install locations will be, this path is our working method)
-
-Install the Plug Core library
-
-```sh
-pipenv install <LOCAL_PATH_TO>/plug-0.0.20.tar.gz
-```
-
-Install the Plug Api library
-
-```sh
-pipenv install <LOCAL_PATH_TO>/plug-api-1.6.1.tar.gz
-```
-
-## Installing Local Plugion
+## Installing Local Plugin
 
 [Setting up a Cookie Cutter Plugin]({{book.cookie-cutter}})
 

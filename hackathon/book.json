@@ -1,0 +1,37 @@
+{
+  "gitbook": "3.x.x",
+  "plugins": [ "collapsible-menu" ],
+  "pluginsConfig": {
+    "fontSettings": {
+      "theme": "night"
+    }
+  },
+  "variables": {
+    "intro": "http://github.com/dev-academy-programme/plug-intro/",
+    "api-client": "/segments/plug/api-client.md",
+    "prerequisites": "/segments/plug/prerequisites.md",
+    "crypto-kiwis": "/crypto-kiwis.md/",
+    "cookie-cutter": "/segments/plug/cookie-cutter.md",
+    "initial-state": "/segments/plug/initial-state.md",
+    "python": "/segments/python/",
+    "plug": "/segments/plug/",
+    "setup": "/segments/plug/setup.md",
+    "transforms": "/segments/plug/transforms.md",
+    "decentralisation": "/segments/crypto/decentralisation.md",
+    "blockchain": "/segments/crypto/blockchain.md",
+    "solution": "/segments/challenges/free-money-solution.md",
+    "models": "/segments/plug/models.md",
+    "overview": "/segments/challenges/free-money-overview.md",
+    "source": "https://github.com/dev-academy-challenges/",
+    "concepts": "git+https://github.com/dev-academy-programme/concepts.git/",
+    "concept-image": "https://raw.githubusercontent.com/dev-academy-programme/concepts/master/images/",
+    "phase0": {
+      "curriculum": "git+https://github.com/dev-academy-programme/curriculum.git",
+      "concept": "https://github.com/dev-academy-programme/curriculum/blob/master/concepts/",
+      "resource": "https://github.com/dev-academy-programme/curriculum/blob/master/resources/"
+    }
+  },
+  "styles": {
+    "website": "styles/website.css"
+  }
+}
