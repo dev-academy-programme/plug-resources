@@ -5,7 +5,7 @@
 An initial state for your plugin means that there are set values, described by your [Models](models.md).
 This initial state will be the state that your plugin will hold in each node upon starting.
 
-If you are building a plugin that stores user balances, you may want some initial users to exist within the node, and those users can have set initial balances.
+For example, If you are building a plugin that stores user balances, you may want some initial users to exist within the node. By setting the initial state those users can have a starting balance.
 
 Initial States are useful for testing locally, but your project may also require that a state exists to begin with.
 
