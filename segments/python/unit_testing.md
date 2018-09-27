@@ -4,7 +4,6 @@
   * [Setup](#setup)
   * [Define a test](#define-a-test)
   * [Test Structure Convention](#test-structure-convention)
-  * [Mocking your Modules](#mocking-your-own-modules)
   * [Expecting Errors](#expecting-errors)
 
 ## Setup
@@ -31,7 +30,7 @@ def test_function():
 
 ## Test Structure Convention
 
-The testing cvonvention that we use can be reffered to as **The Three As**.
+A good testing convention can to follow is "Arrange, Act, Assert"
 
 ### Arrange
 
@@ -70,8 +69,6 @@ Assertions are the conditions by which your test will pass and fail. The cleanes
 assert actual == expected
 ```
 
-Make sense?
-
 ### All Together Now
 
 An example of the whole test convention is:
@@ -88,63 +85,6 @@ def test_say_hello():
   """Assert"""
   assert actual == expected
 ```
-
-## Mocking your own modules
-
-Say we are testing the module below:
-
-
-``` py
-#methods.py
-from utils import capitalise
-
-def say_hello(name):
-  return "Hello " + capitalise(name)
-
-```
-
-Where the `say_hello` function is will call upon the `capitlise` function within `utils.py`. `utils.py is within the same directory as `methods.py`.
-
-We only want to test the `say_hello` function and want to mock out the `capitlise` function.
-
-Our testing directory structure should look like so:
-
-```
-| tests/
-|
-|___utils.py
-|___test_methods.py
-```
-
-Where our `tests/utils.py` file can simply pretend to include a `capitlise` function:
-
-```py
-# tests/utils.py
-def capitlise(name):
-  return name
-```
-
-But does not actually alter the name in any way.
-
-So in practice, if our `test_methods.py` file looks like:
-
-```py
-# tests/test_methods.py
-
-from core.methods import say_hello
-
-def test_say_hello():
-  name = "alice"
-  expected = "Hello alice"
-
-  actual = say_hello(name)
-
-  assert actual == expected
-```
-
-This test will pass, as when `say_hello` is run within the test context, it import our mock `capitlise` from `tests/methods.py`, and will not actually alter the name.
-
-With this method we can be sure that we are unit testing `say_hello` exclusively, and the results of our test are not dependant on `capitlise` performing as it should.
 
 ## Expecting Errors
 
