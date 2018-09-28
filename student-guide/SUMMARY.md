@@ -30,3 +30,4 @@ We have provided links to resources you will want to read through for technical 
     * [Transforms](segments/plug/transforms.md)
     * [Indexers](segments/plug/indexers.md)
     * [Initial State](segments/plug/initial_state.md)
+    * [Rest](segments/plug/rest.md)

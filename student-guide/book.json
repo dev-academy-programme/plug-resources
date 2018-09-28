@@ -18,6 +18,7 @@
     "plug": "/segments/plug/",
     "setup": "/segments/plug/setup.md",
     "transforms": "/segments/plug/transforms.md",
+    "rest": "/segments/plug/rest.md",
     "decentralisation": "/segments/crypto/decentralisation.md",
     "blockchain": "/segments/crypto/blockchain.md",
     "solution": "/segments/challenges/free-money-solution.md",
