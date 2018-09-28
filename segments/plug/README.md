@@ -10,4 +10,4 @@
 ### Components of a Plugin
 * [Models](./models.md)
 * [Transforms](./transforms.md)
-*
+* [Indexer](indexers.md)
