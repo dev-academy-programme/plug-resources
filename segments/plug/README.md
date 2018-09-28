@@ -12,3 +12,6 @@
 * [Transforms]({{book.transforms}})
 * [Initial State]({{book.initial_state}})
 * [Indexers]({{book.indexers}})
+
+### Usage
+* [Rest Proxy]({{book.rest}})
