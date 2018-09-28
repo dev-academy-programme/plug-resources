@@ -1,26 +1,8 @@
 # Indexers
 
-Indexers are a useful component of a complex plugin.
-
-You may use indexers for many things, for our examples, we will focus on the `ModelIndexer` built into plug, and extending upon it.
+Indexers are a tool to help you create a custom view of a Plugin's state. In this example we will focus on the `ModelIndexer` built into plug, and extending upon it.
 
 ## ModelIndexer
-
-The ModelIndexer allows you to arrange the items you are storing in the plug state as [Models](models.md), and allows you to specify how the items should be entered, removed, etc from the Model more specifically.
-
-### Setup
-
-You will define which models use what Indexer within your `config.yaml` file using the following structure:
-
-``` yaml
-indexers:
-  example.ExampleModel:
-  - plug_name.indexers_file.ExampleModelIndexer
-```
-
-Above we are telling our Plugin that the `ExampleModel` model will use the `ExampleModelIndexer` as its Indexer. The `ExampleModelIndexer` is a class within the `indexers_file.py` file, within the `plug_name` directory.
-
-**You don't have to import your indexers within your plug, this config.yaml setup with link them for you!**
 
 ### Writing an Indexer
 
@@ -80,6 +62,20 @@ state
         - some_value
 ```
 
+### Connecting your indexer
+
+You will need to update the `config.yaml` file connecting the indexer with the model it indexers:
+
+``` yaml
+indexers:
+  ExampleModel:
+  - package_name.indexers.ExampleModelIndexer
+```
+
+Above we are telling our Plugin that the model with the fqdn of `ExampleModel` will use the `ExampleModelIndexer` as its Indexer. Whenever models are updated or removed the corresponding methods on the indexer will be called so it can keep it's cache up to date. The `ExampleModelIndexer` is a class within the `indexers_file.py` file, within the `package_name` directory.
+
+**You don't have to register your indexers like with Models or Transforms, this config.yaml setup will link them for you**
+
 ## Full Example
 
 For an example in context, you may have a voting app. You have a `VoteModel` model, a `VoteIndexer` indexer, and a `placeVote` transform.
@@ -91,7 +87,6 @@ The `apply` of our transform may look like:
 ``` py
 def apply (self, state_slice):
   state_slice[VoteModel.fqdn][self.voter_address] = VoteModel(
-    voter_address = self.voter_address,
     is_vote_for = self.is_vote_for
   )
 ```
@@ -106,19 +101,10 @@ def update (self, key, value):
     self['_against'] = []
   # The above ensures that there are lists of votes for and against
 
-  if value.is_vote_for == True:
-    self['_for'].append(value)
+  if value.is_vote_for 
+    self['_for'].append(key)
   else:
-    self['_against'].append(value)
+    self['_against'].append(key)
 ```
 
-Because of the above organisation, if we were to request to state of `VoteModel`, querying the `VoteIndexer`, our response would be oragnised as:
-
-``` json
-  "response": {
-    "payload": {
-      "_for": [],
-      "_against": []
-    }
-  }
-```
+Because of the above organisation, if we were to request to state of `VoteModel`, querying the `VoteIndexer` via a GET request to 'http://localhost:8181/_api/v1/query/[VoteModel.fqdn]/[VoteIndexer.fqdn]/_for would give us a list of all the addresses that voted for.
