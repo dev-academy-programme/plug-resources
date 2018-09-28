@@ -3,8 +3,8 @@
 ## Index
 
 ### General
-* [Blockchain](./blockchain.md)
-* [Decentralisation](./decentralisation.md)
+* [Blockchain]({{book.blockchain}})
+* [Decentralisation]({{book.decentralisation}})
 
 ### Technical
-* [Transforms]  
+* [Transforms]({{book.transforms}})

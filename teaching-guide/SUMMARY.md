@@ -19,3 +19,4 @@
     * [Cookie Cutter Scaffold](segments/plug/cookie-cutter.md)
     * [Models](segments/plug/models.md)
     * [Transforms](segments/plug/transforms.md)
+    * [Indexers](segments/plug/indexers.md)
