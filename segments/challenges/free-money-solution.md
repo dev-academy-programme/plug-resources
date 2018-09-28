@@ -143,63 +143,50 @@ Changing our current scripts to use the `api_client` is quite a bit of work, but
 
 ##### API Client Walkthrough
 
-You'll need to create a couple of new files inside your `client` directory. First, `key_manager.py`, which looks like this:
+All of the functionality you'll need to work with the api lives in the `client/utils.py` script. The `utils.py` file can be required in whenever we need to interact with the api_client. Let's look at an example of that now in `user.py`:
 
 ```python
-from plug_api.key_managers.sqlite import SqliteKeyManager
-
-def get_key_manager():
-    return SqliteKeyManager('keys.db').setup()
-```
-
-This file can now be required in elsewhere in the project whenever you need to interact with signing keys. Next, create `api_client.py`, and set it up like this:
-
-```python
-from key_manager import get_key_manager
-from plug_api.clients.v1 import PlugApiClient
-
-def get_api_client():
-    return PlugApiClient("http://localhost:8181", get_key_manager())
-```
-
-This requires in the `key_manager` function from before, and passes it into the constructor for the PlugApiClient. Now _this_ script can be required in whenever we need to interact with the api_client. Let's look at an example of that now in `user.py`.
-
-```python
-from api_client import get_api_client
-from key_manager import get_key_manager
+from client.utils import get_api_client, get_key_manager
+from asyncio import get_event_loop
 
 class User:
-    client = get_api_client()
-    key_manager = get_key_manager()
-    network_id = client.network_id
 
-    def __init__(self):
-      self.address = self.key_manager.generate()
-      self.key_manager.set_nonce(self.address, self.network_id, 0)
+    def __init__(self, address):
+        self.client = get_api_client()
+        self.key_manager = get_key_manager()
+
+        loop = get_event_loop()
+        self.network_id = loop.run_until_complete(self.client.get_network_id())
+
+        if (address):
+            self.address = address
+        else:
+            self.address = self.key_manager.generate()
+            self.key_manager.set_nonce(self.address, self.network_id, 0)
 ```
 
 The entire class just looks like this now. The key manager handles the generation and local storage of the keys for us.
 Next let's explore how the api_client is used to interact with our Transforms in `unexpected_expense_client.py`:
 
 ```python
-from plug.message import Event
-from plug.registry import Registry
-
-from client.api_client import get_api_client
-from register import register_transform_event
-
 from unexpected_expense.transform import UnexpectedExpense
-from user import User
+from client.utils import register_transform_event
+from client.user import User
 
-async def init_unexpected_expense(address_input, amount):
+from asyncio import get_event_loop
+
+def init_unexpected_expense(client, address_input, amount):
     register_transform_event(UnexpectedExpense)
 
-    response = get_api_client().broadcast_transform(UnexpectedExpense(
+    loop = get_event_loop()
+
+    response = loop.run_until_complete(client.broadcast_transform(UnexpectedExpense(
         user=address_input,
         amount=int(amount),
-    ))
+    )))
 
     print(response)
+    return response
 ```
 
 _This_ is really amazing. All of that complicated code from before doing the hashing and proofing and packaging; condensed down into a tight little function. The `broadcast_transform()` method does it all for us!
