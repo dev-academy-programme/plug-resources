@@ -7,7 +7,7 @@
     }
   },
   "variables": {
-    "intro": "http://github.com/dev-academy-programme/plug-intro/",
+    "intro": "https://github.com/dev-academy-programme/plug-free-money-challenge/",
     "api-client": "/segments/plug/api-client.md",
     "prerequisites": "/segments/plug/prerequisites.md",
     "crypto-kiwis": "/crypto-kiwis.md/",
