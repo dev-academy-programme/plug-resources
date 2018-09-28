@@ -7,7 +7,7 @@
     }
   },
   "variables": {
-    "intro": "http://github.com/dev-academy-programme/plug-intro/",
+    "freeMoneyChallenge": "http://github.com/dev-academy-programme/plug-free-money-challenge/",
     "api-client": "/segments/plug/api-client.md",
     "prerequisites": "/segments/plug/prerequisites.md",
     "crypto-kiwis": "/crypto-kiwis.md/",
@@ -19,17 +19,7 @@
     "transforms": "/segments/plug/transforms.md",
     "decentralisation": "/segments/crypto/decentralisation.md",
     "blockchain": "/segments/crypto/blockchain.md",
-    "solution": "/segments/challenges/free-money-solution.md",
-    "models": "/segments/plug/models.md",
-    "overview": "/segments/challenges/free-money-overview.md",
-    "source": "https://github.com/dev-academy-challenges/",
-    "concepts": "git+https://github.com/dev-academy-programme/concepts.git/",
-    "concept-image": "https://raw.githubusercontent.com/dev-academy-programme/concepts/master/images/",
-    "phase0": {
-      "curriculum": "git+https://github.com/dev-academy-programme/curriculum.git",
-      "concept": "https://github.com/dev-academy-programme/curriculum/blob/master/concepts/",
-      "resource": "https://github.com/dev-academy-programme/curriculum/blob/master/resources/"
-    }
+    "models": "/segments/plug/models.md"
   },
   "styles": {
     "website": "styles/website.css"

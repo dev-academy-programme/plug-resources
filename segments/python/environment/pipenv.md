@@ -1,4 +1,4 @@
-## Virtual Environments
+## Virtual Environment
 
 Pipenv is a tool for isolating your Python and project libraries.
 

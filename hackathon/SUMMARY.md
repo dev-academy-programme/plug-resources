@@ -1,3 +1,5 @@
 * [Overview](./README.md)
 * [Setting up your Environment](/segments/plug/environment/setup.md)
+* [Free Money Challenge](/segments/challenges/free-money-overview.md)
+  * [Sample Solution](/segments/challenges/free-money-solution.md)
 * [Create your own app](/segments/plug/environment/create-app.md)
