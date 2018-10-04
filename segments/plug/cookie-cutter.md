@@ -1,20 +1,19 @@
-# Cookie Cutter Plug
+# Plug Cookie Cutter 
+
+Plug has a cookie cutter template for scaffolding an new application.
 
 ## Installing Cookie Cutter
 
 ``` sh
-pip install cookiecutter
+pipenv install cookiecutter
 ```
 
 ## Scaffold a new plugin
 
-
-!!PLACEHOLDER
+unzip the cookiecutter.zip file in plug-libs and then run the following from your new application folder. 
 
 ``` sh
-cookiecutter git+ssh://git@github.com/plugblockchain/cookiecutter-plugin
+cookiecutter ../plug-libs/cookiecutter-plugin-master
 ```
 
 Follow the prompts to create the plugin.
-
-This should have created the scaffold of your cookie-cutter plugin. Refer to the steps from [The Setup Guide](./setup.md) for configuring and running your plugin.

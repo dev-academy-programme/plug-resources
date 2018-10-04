@@ -8,7 +8,7 @@ If you find yourself finishing the directed steps and are looking for something 
 
 We call it...
 
-## The 5 R's (arrrrr...)
+## The 5 Rs (arrrrr...)
 
 * [Read](#read)
 * [Revise](#revise)
@@ -62,5 +62,3 @@ The possibilities are endless!
 
 Creating your own stretch goals is a great way to test your ingenuity and understanding when it comes to this tech.
 The potential of crypto is vast and yet unfulfilled. Start thinking creatively about what the possibilities of this technology are, it'll benefit you in the long run, we promise.
-
-[Back to Index](./README.md)

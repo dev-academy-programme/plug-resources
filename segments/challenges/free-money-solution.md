@@ -191,8 +191,3 @@ def init_unexpected_expense(client, address_input, amount):
 
 _This_ is really amazing. All of that complicated code from before doing the hashing and proofing and packaging; condensed down into a tight little function. The `broadcast_transform()` method does it all for us!
 
----
-
-##### What next?
-
-- Read the documentation for the `api_client` and familiarize yourself with the methods in there.
