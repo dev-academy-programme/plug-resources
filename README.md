@@ -11,10 +11,7 @@ yarn global add gitbook-cli
  - or -
 npm install -g gitbook-cli
 ```
-
-For building full book, stay in this root directory.
-
-For building `hackathon`, run
+e.g. the hackathon folder contains a view of the material aimed at students participating in a two day hackathon.
 
 ```sh
 cd hackathon
