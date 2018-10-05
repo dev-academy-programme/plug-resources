@@ -10,6 +10,8 @@
 
 Open up the core plug documentation in `plug-libs/docs/plug/_build/html/index.html` and work your way through the Quickstart section. As you progress, try to build up a good set of questions you are curious about on your questions list.
 
+Note that you will need to replace the path to the plug libraires from `git+ssh://git@github.com/plugblockchain/plug@master#egg=plug_framework` to `../plug-libs/plug_framework-0.0.24-py3-none-any.whl` and the same for the plug-demo library.
+
 ## Balance Tutorial
 
 Next tackle the balance tutorial which is under the tutorials section of the core documentation. Work your way through the "Building your first Plugin" and "Deploying your first Plugin". See if you can add more questions to your question list, and perhaps cross off some of your initial ones. 
