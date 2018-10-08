@@ -1,7 +1,5 @@
 # Blockchain
 
-The blockchain is a concept that is simple to those that understand it, and vastly complex to those that don't.
-
 This series of medium articles (named Blockhain Bible) does a good job of explaining blockchain/crypto in a simple, linear manner, while linking to many informative resources.
 
 [Blockchain fundamentals (Part 1)](https://medium.com/@realmarktaker/blockchain-bible-foundations-and-fundamentals-of-blockchain-affb54f0d42c)
